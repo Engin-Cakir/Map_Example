@@ -11,15 +11,15 @@ public class Main {
         String randomWord = "Put an and to";
         for (int i = 0; i < randomWord.length(); i++) {
             int count = 1;
-            for (int j = i + 1; j < randomWord.length(); j++) {
-                if (randomWord.charAt(i) == randomWord.charAt(j)) {
-                    count++;
+            if (randomWord.charAt(i) != ' ') {
+                for (int j = i + 1; j < randomWord.length(); j++) {
+                    if (randomWord.charAt(i) == randomWord.charAt(j)) {
+                        count++;
+                    }
                 }
 
-            }
-            if (randomWord.charAt(i) != ' ')
                 words.putIfAbsent(String.valueOf(randomWord.charAt(i)), count);
-
+            }
         }
         System.out.println(words.entrySet());
     }
